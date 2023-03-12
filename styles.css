@@ -1,0 +1,24 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    background-color: #292929;
+    font-family: 'Plus Jakarta Sans', serif;
+    
+}
+a{
+    text-decoration: none;
+    font-weight: 600;
+    background-color: #1aa34a;
+    font-size: 1rem;
+    color: rgb(238, 238, 238);
+    padding: 20px 25px;
+    border-radius: 50px;
+    /*text-transform: uppercase;*/
+}
+a:hover{
+    background-color: #1DB954; 
+    color: white; 
+}

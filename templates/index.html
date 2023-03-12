@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Plus Jakarta Sans">
+</head>
+<body>
+    <h1>Spotify Recommendations</h1>
+    <form method="POST" action="/recommendations">
+        <div class="content">  
+            <div class="content-form">
+                    <div>
+                        <label for="market">Market</label>
+                        <div class="tab">
+                            <input class="radio" type="radio" name="market" id="US" value="US">
+                            <label for="market">US</label>
+                        </div>
+                        <div class="tab">
+                            <input class="radio" type="radio" name="market" id="ES" value="ES">
+                            <label for="market">ES</label>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="artist">Artist: </label>
+                        <input type="text" id="explicit-label-name" name="artist" />
+                    </div>
+                    <div>
+                        <label for="song">Song: </label>
+                        <input type="text" id="explicit-label-name" name="song" />
+                    </div>
+                    <div>
+                        <label for="genre">Genre</label>
+                        <select name = "genre">
+                            <option value = "pop" selected>Pop</option>
+                            <option value = "rock">Rock</option>
+                            <option value = "folk">Folk</option>
+                            <option value = "alternative">Alternative</option>
+                            <option value = "latino">Latino</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="danceability">Danceability:</label>
+                        <input type="range" name="danceability" step="0.1" min="0" max="1" required>
+                        <label for="acousticness">Acousticness:</label>
+                        <input type="range" name="acousticness" step="0.1" min="0" max="1" required>
+                        <label for="popularity">Popularity:</label>
+                        <input type="range" name="popularity" min="0" max="100" required>
+                    </div>
+            </div>
+            <div>
+                <input type="reset" class="reset" value="Reset">
+                <input type="submit" class="submit" value="recommendations">
+            </div>
+        </div>  
+    </fieldset>
+    {% if track_list %}
+      <h2>Recommended Tracks:</h2>
+      <ul>
+        {% for track in track_list %}
+          <li>{{ track }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+</body>
+</html>
